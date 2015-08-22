@@ -23,6 +23,32 @@
 			<h:commandButton value="Gravar" action="#{produtoBean.grava}"></h:commandButton>
 		</h:panelGrid>
 	</h:form>
+	<h:form>
+		<h:dataTable value="#{produtoBean.produtos}" var="produto">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{produto.nome}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Descricao</f:facet>
+				#{produto.descricao}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Preco</f:facet>
+				#{produto.preco}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Acoes</f:facet>
+				<h:commandLink action="#{produtoBean.remove(produto)}"
+					value="Remover"
+				></h:commandLink>
+			</h:column>
+		
+		</h:dataTable>
+	</h:form>
 
 </body>
 </html>
