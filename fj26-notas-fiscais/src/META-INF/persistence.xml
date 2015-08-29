@@ -15,14 +15,15 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/fj26" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
-
-			<!-- JPA não deve usar bean validation -->
-			<property name="javax.persistence.validation.mode" value="none" />
-
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
+			<!-- JPA não deve usar bean validation -->
+<!-- 			<property name="javax.persistence.validation.mode" value="none" /> -->
+
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="update" /> -->
+
+<!-- 			<property name="eclipselink.logging.level.sql" value="FINE" /> -->
+<!-- 			<property name="eclipselink.logging.parameters" value="true" /> -->
 
 		</properties>
 	</persistence-unit>

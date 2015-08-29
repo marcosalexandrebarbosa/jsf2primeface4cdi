@@ -3,13 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:f= "http://java.sun.com/jsf/core"
 		xmlns:h= "http://java.sun.com/jsf/html">
-<head>
+<h:head>
+<h:outputScript name="jsf.js" library="javax.faces" />
+<h:outputScript />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
-</head>
+</h:head>
 <body>
 
 	<h:form>
+		<h:inputHidden value="#{produtoBean.produto.id}"/>
+	
+	
+		<h2>
+			<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}"/>
+			<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}"/>
+				
+		</h2>
+	
 		<h:panelGrid>
 			<h:outputLabel value="Nome:" for="nome"></h:outputLabel>
 			<h:inputText id="nome" value="#{produtoBean.produto.nome}"></h:inputText>
@@ -22,8 +33,6 @@
 			
 			<h:commandButton value="Gravar" action="#{produtoBean.grava}"></h:commandButton>
 		</h:panelGrid>
-	</h:form>
-	<h:form>
 		<h:dataTable value="#{produtoBean.produtos}" var="produto">
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
@@ -43,12 +52,23 @@
 			<h:column>
 				<f:facet name="header">Acoes</f:facet>
 				<h:commandLink action="#{produtoBean.remove(produto)}"
-					value="Remover"
-				></h:commandLink>
+					value="Remover">
+					<f:ajax render="@form"></f:ajax>
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<h:commandLink value="Alterar">
+					<f:setPropertyActionListener value="#{produto}" 
+							target="#{produtoBean.produto}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
 			</h:column>
 		
 		</h:dataTable>
 	</h:form>
+	
+	
 
 </body>
 </html>
