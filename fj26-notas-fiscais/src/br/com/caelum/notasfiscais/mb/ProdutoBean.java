@@ -1,8 +1,10 @@
 package br.com.caelum.notasfiscais.mb;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import br.com.caelum.notasfiscais.dao.ProdutoDao;
@@ -10,11 +12,14 @@ import br.com.caelum.notasfiscais.modelo.Produto;
 
 @ManagedBean
 @ViewScoped
-public class ProdutoBean {
+@SessionScoped
+public class ProdutoBean implements Serializable {
 	
 	private Produto produto = new Produto();
 	
 	private List<Produto> produtos;
+	
+	//FacesContext.getCurrentInstance().getExternalContext().getFlash().put(key, value);
 	
 	public Produto getProduto() {
 		return this.produto;
@@ -25,6 +30,9 @@ public class ProdutoBean {
 	}
 	
 	public void grava() {
+		
+		System.out.println("Será que vai passar por aqui?");
+		
 		ProdutoDao dao = new ProdutoDao();
 		//dao.adiciona(produto);
 		if (produto.getId() == null) {

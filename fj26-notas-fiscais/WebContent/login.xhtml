@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<title>Sistema de Notas Fiscais</title>
+</h:head>
+
+<h:body>
+
+	<div id="cabecalho">
+		<h:graphicImage library="imagens" name="logo-uber.png" id="logoCompany" />
+	</div>
+
+	<div>
+		<h2>Login no Sistema</h2>
+		<h:form>
+			<h:panelGrid columns="2" styleClass="campos">
+			
+				<h:outputLabel value="Login:" for="login" />
+				<h:inputText id="login" value="#{loginBean.usuario.login}" />
+				
+				<h:outputLabel value="Senha:" for="senha" />
+				<h:inputText id="senha" value="#{loginBean.usuario.senha}" />
+				
+				<h:commandButton value="Efetuar Login" action="#{loginBean.efetuaLogin}" />
+				
+			</h:panelGrid>
+			
+		</h:form>
+	</div>
+
+
+	<br /><br /><br /><br /><br /><br /><br /><br />
+
+	<div>
+		Copy 2013.
+		Todos os Direitos Resevados a Marcos Barbosa
+	</div>
+
+</h:body>
+
+
+</html>
