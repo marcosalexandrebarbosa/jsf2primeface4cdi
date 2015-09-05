@@ -20,13 +20,14 @@ public class LoginBean implements Serializable {
 	private Usuario usuario = new Usuario();
 	@Inject
 	private UsuarioDao dao;
-	
+	@Inject
 	private UsuarioLogadoBean usuarioLogado;
 	
 	public String efetuaLogin() {
 		//UsuarioDao dao = new UsuarioDao();
 		boolean loginValido = dao.existe(this.usuario);
 		if (loginValido) {
+			usuarioLogado.loga(usuario);
 			return "produto?faces-redirect=true";
 		} else {
 			usuarioLogado.deslogar();
@@ -36,6 +37,14 @@ public class LoginBean implements Serializable {
 		//System.out.println("O login era valido? " + loginValido);
 	}
 	
+	public String efetuaLogout() {
+
+		usuarioLogado.efetuaLogout();
+		
+		return "login";
+
+	}
+
 	public Usuario getUsuario() {
 		return this.usuario;
 	}

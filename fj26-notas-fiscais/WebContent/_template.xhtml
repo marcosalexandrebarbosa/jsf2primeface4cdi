@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:h="http://java.sun.com/jsf/html" >
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h:outputStylesheet name="style.css" library="css" />
+<title>Sistema de Notas Fiscais - UberDist</title>
+</h:head>
+<h:body>
+
+	<div id="cabecalho">
+		<h:graphicImage library="imagens" name="logo-uber.png" id="logoCompany" />
+		<div id="usuarioLogado">
+			<h:form id="menu" rendered="#{usuarioLogado.logado}">
+				Logado como <strong>#{usuarioLogado.usuario.login}</strong>
+				<p:menubar>
+					<p:menuitem value="Usuarios" url="usuario.xhtml" icon="ui-icon ui-icon-home" />
+					<p:menuitem value="Produtos" url="produto.xhtml" icon="ui-icon ui-icon-home" />
+					<p:submenu label="Notas Fiscais" icon="ui-icon ui-icon-suitcase" >
+						<p:menuitem value="Cadastro" url="notafiscal.xhtml" icon="ui-icon ui-icon-pencil" />
+						<p:menuitem value="Listagem" url="listanotas.xhtml" icon="ui-icon ui-icon-search" />
+					
+					</p:submenu>
+					<p:menuitem value="" action="#{loginBean.efetuaLogout}" icon="ui-icon ui-icon-close" />
+				
+				</p:menubar>
+
+			</h:form>
+		</div>
+	</div>
+	
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+	
+	<div id="rodape">
+		Copyright 2010.
+		Todos os Direitos reservados a Wellington Ramos Nogueira.
+	</div>
+	
+</h:body>
+</html>
