@@ -1,11 +1,13 @@
 package br.com.caelum.notasfiscais.mb;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import br.com.caelum.notasfiscais.dao.UsuarioDao;
 import br.com.caelum.notasfiscais.modelo.Usuario;
 
 @ManagedBean
+@SessionScoped
 public class LoginBean {
 	
 	private Usuario usuario = new Usuario();

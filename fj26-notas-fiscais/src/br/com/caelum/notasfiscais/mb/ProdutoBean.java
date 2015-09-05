@@ -29,7 +29,7 @@ public class ProdutoBean implements Serializable {
 		this.produto = produto;
 	}
 	
-	public void grava() {
+	public String grava() {
 		
 		System.out.println("Será que vai passar por aqui?");
 		
@@ -41,9 +41,9 @@ public class ProdutoBean implements Serializable {
 			dao.atualiza(produto);
 		}
 		produtos = dao.listaTodos();
-		this.produto = new Produto();
+		//this.produto = new Produto();
 		
-		//return "/produto.xhtml?faces-redirect=true";
+		return "/produto.xhtml?faces-redirect=true";
 	}
 	
 	public List<Produto> getProdutos() {
