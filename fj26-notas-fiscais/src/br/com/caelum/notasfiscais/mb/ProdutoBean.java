@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 import br.com.caelum.notasfiscais.dao.ProdutoDao;
 import br.com.caelum.notasfiscais.modelo.Produto;
 
+@SuppressWarnings("serial")
 @ManagedBean
 @ViewScoped
 @SessionScoped

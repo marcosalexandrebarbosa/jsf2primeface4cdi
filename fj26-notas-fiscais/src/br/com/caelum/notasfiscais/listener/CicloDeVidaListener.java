@@ -4,6 +4,7 @@ import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 
+@SuppressWarnings("serial")
 public class CicloDeVidaListener implements PhaseListener {
 
 	@Override
